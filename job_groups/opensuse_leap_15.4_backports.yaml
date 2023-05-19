@@ -22,20 +22,32 @@ scenarios:
     opensuse-15.4-DVD-Backports-Incidents-x86_64:
       - textmode:
           machine: 64bit
-      - kde
+      - kde:
+          settings:
+            # Workaround for boo#1211459
+            EXCLUDE_MODULES: force_scheduled_tasks
       - gnome:
           machine: uefi
           settings:
             QEMUVGA: cirrus
+            # Workaround for boo#1211459
+            EXCLUDE_MODULES: force_scheduled_tasks
       - gnome:
           machine: 64bit-2G
           settings:
             QEMUVGA: cirrus
+            # Workaround for boo#1211459
+            EXCLUDE_MODULES: force_scheduled_tasks
       - cryptlvm:
           settings:
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
       - install_with_updates_gnome:
           settings:
             QEMUVGA: cirrus
+            # Workaround for boo#1211459
+            EXCLUDE_MODULES: force_scheduled_tasks
       - install_with_updates_kde:
           machine: uefi-2G
+          settings:
+            # Workaround for boo#1211459
+            EXCLUDE_MODULES: force_scheduled_tasks
