@@ -314,14 +314,35 @@ scenarios:
           priority: 49
       - cryptlvm:
           machine: uefi-2G
-          settings:
+          settings: &cryptlvm-settings
             YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
             YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
       - cryptlvm:
           machine: 64bit
           settings:
-            YAML_SCHEDULE: schedule/yast/opensuse/encryption/cryptlvm.yaml
-            YAML_TEST_DATA: test_data/yast/encryption/lvm_encrypt_separate_boot_luks2.yaml
+            <<: *cryptlvm-settings
+      - cryptlvm_with_tpm+pin:
+          description: Test LVM with separate boot partition using TPM2+PIN as authentication method, should ask for password to unlock volume
+          testsuite: cryptlvm
+          machine: uefi-4G-TPM
+          settings:
+            <<: *cryptlvm-settings
+            FDE_ENROLLMENT: 'TPM2 and PIN'
+      - cryptlvm_only_password:
+          description: Test LVM with separate boot partition using Password as authentication method, should ask for password to unlock volume
+          testsuite: cryptlvm
+          machine: uefi-4G-TPM
+          settings:
+            <<: *cryptlvm-settings
+            FDE_ENROLLMENT: 'Only Password'
+      - cryptlvm_with_tpm:
+          description: Test LVM with separate boot partition using TPM2 as authentication method, should unlock without asking for password
+          testsuite: cryptlvm
+          machine: uefi-4G-TPM
+          settings:
+            <<: *cryptlvm-settings
+            FDE_ENROLLMENT: 'TPM2'
+            ENCRYPT: '0'
       - install_only:
           machine: smp_64
           priority: 40
