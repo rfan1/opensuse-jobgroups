@@ -204,9 +204,11 @@ scenarios:
       - microos_bonding_target:
           settings:
             NICVLAN: '3001'
+            DHCPD_SERVER_IMAGE_NAME: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/kea:latest
       - microos_bonding_ping:
           settings:
             NICVLAN: '3001,3001'
+            DHCPD_SERVER_IMAGE_NAME: registry.opensuse.org/opensuse/factory/arm/totest/containers/opensuse/kea:latest
       - microos_networkmanager
     microos-*-MicroOS-Image-sdboot-aarch64:
       - microos-combustion
