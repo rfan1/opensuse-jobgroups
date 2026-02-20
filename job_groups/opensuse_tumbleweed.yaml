@@ -1686,48 +1686,48 @@ scenarios:
           machine: uefi_virtio-2G
     opensuse-Tumbleweed-KDE-Live-x86_64:
       - kde-live:
-          machine: uefi-3G
+          machine: uefi-4G
           priority: 48
       - kde-live:
           machine: uefi-usb-4G
           priority: 48
       - kde-live:
-          machine: 64bit-3G
+          machine: 64bit-4G
           priority: 48
       - kde-live:
-          machine: USBboot_64-3G
+          machine: USBboot_64-4G
           priority: 48
       - mediacheck:
           machine: 64bit
       - kde-live_installation:
-          machine: uefi-3G
+          machine: uefi-4G
       - kde-live_installation:
-          machine: 64bit-3G
+          machine: 64bit-4G
       - kde-live-wayland:
-          machine: 64bit_virtio-3G
+          machine: 64bit_virtio-4G
       - kde_live_upgrade_leap_15.0:
           machine: 64bit
           settings:
-            QEMURAM: "3072"
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.2:
           machine: uefi
           settings:
-            QEMURAM: "3072"
+            QEMURAM: "4096"
       - kde_live_upgrade_leap_15.3:
           machine: 64bit
           settings:
-            QEMURAM: "3072"
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.5:
           machine: 64bit
           settings:
-            QEMURAM: "3072"
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
       - kde_live_upgrade_leap_15.6:
           machine: 64bit
           settings:
-            QEMURAM: "3072"
+            QEMURAM: "4096"
             QEMU_VIRTIO_RNG: "0"
     opensuse-Tumbleweed-NET-x86_64:
       - textmode:
