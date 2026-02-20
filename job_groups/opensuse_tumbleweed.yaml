@@ -820,11 +820,11 @@ scenarios:
             <<: *bci
             BCI_IMAGE_MARKER: golang_oldstable
             BCI_TEST_ENVS: all,metadata,go
-      - bci_nodejs_22_podman:
+      - bci_nodejs_24_podman:
           testsuite: null
           settings:
             <<: *bci
-            BCI_IMAGE_MARKER: nodejs_22
+            BCI_IMAGE_MARKER: nodejs_24
             BCI_TEST_ENVS: all,node,metadata
       - bci_openjdk_11_podman:
           testsuite: null
