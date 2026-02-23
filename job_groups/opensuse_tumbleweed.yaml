@@ -355,6 +355,13 @@ scenarios:
             <<: *cryptlvm-settings
             FDE_ENROLLMENT: 'TPM2'
             ENCRYPT: '0'
+      - crypt_no_lvm_with_tpm:
+          description: Test installation with separate boot partition using TPM2 as authentication method, should unlock without asking for password
+          testsuite: crypt_no_lvm
+          machine: uefi-4G-TPM
+          settings:
+            FDE_ENROLLMENT: 'TPM2'
+            ENCRYPT: '0'
       - install_only:
           machine: smp_64
           priority: 40
